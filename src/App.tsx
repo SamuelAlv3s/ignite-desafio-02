@@ -30,18 +30,10 @@ export interface MovieProps {
 export function App() {
   const [selectedGenreId, setSelectedGenreId] = useState(1);
 
-  const [genres, setGenres] = useState<GenreResponseProps[]>([]);
-
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>(
     {} as GenreResponseProps
   );
-
-  useEffect(() => {
-    api.get<GenreResponseProps[]>("genres").then((response) => {
-      setGenres(response.data);
-    });
-  }, []);
 
   useEffect(() => {
     api
@@ -64,7 +56,6 @@ export function App() {
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
       <SideBar
-        genres={genres}
         selectedGenreId={selectedGenreId}
         setSelectedGenre={handleClickButton}
       ></SideBar>
