@@ -9,6 +9,9 @@
     "build": "cross-env NODE_ENV=production webpack",
     "test": "jest --watchAll"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "json-server": "^0.16.3",
